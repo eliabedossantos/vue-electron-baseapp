@@ -11,6 +11,7 @@ InstallDir $PROGRAMFILES\HelloWorld
 Section
   ; Verifica se o Chocolatey está instalado
   ClearErrors
+  DetailPrint "Verificando a instalação do Chocolatey..."
   ExecWait 'where choco'
   IfErrors InstallChocolatey
   Goto InstallDCMTK
@@ -27,7 +28,7 @@ InstallDCMTK:
   ClearErrors
   ExecWait 'where dcmtk'
   IfErrors InstallDCMTKCommand
-  Goto InstallDCMTKCommand
+  Goto InstallYourApp
 
 InstallDCMTKCommand:
   ; Instala o DCMTK usando o Chocolatey
